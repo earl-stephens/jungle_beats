@@ -26,4 +26,10 @@ RSpec.describe 'testing linked list class' do
     # binding.pry
     expect(@list.count).to eq(1)
   end
+
+  it 'can output the data' do
+    @list.append('doop')
+
+    expect(@list.to_string).to eq('doop')
+  end
 end

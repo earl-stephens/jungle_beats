@@ -13,6 +13,12 @@ class LinkedList
 
   def count
     # binding.pry
-    @head.node
+    if @head.next_node == nil
+      1
+    end
+  end
+
+  def to_string
+    @head.data
   end
 end
