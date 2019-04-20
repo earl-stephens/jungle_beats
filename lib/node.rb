@@ -2,11 +2,9 @@ class Node
   attr_reader :data,
               :next_node
 
-  def initialize(data)
+  def initialize(data, node = nil)
     @data = data
-    @next_node = nil
+    @next_node = node
   end
-
-
 
 end
