@@ -21,15 +21,31 @@ RSpec.describe 'testing linked list class' do
     expect(@list.head.next_node).to eq(nil)
   end
 
-  it 'can count nodes' do
+  xit 'can count nodes' do
     @list.append('doop')
     # binding.pry
     expect(@list.count).to eq(1)
   end
 
-  it 'can output the data' do
+  xit 'can output the data' do
     @list.append('doop')
 
     expect(@list.to_string).to eq('doop')
   end
+
+describe 'a single linked list' do
+  before :each do
+    @list = LinkedList.new
+    @list.append('doop')
+  end
+
+  it 'can append multiple nodes' do
+    @list.append('deep')
+    @list.append('derp')
+
+    expect(@list.head.next_node).to_not eq(nil)
+    # expect(@list.count).to eq(2)
+    # expect(@list.to_string).to eq('doop deep')
+  end
+end
 end

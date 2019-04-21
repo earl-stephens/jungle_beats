@@ -7,4 +7,8 @@ class Node
     @next_node = node
   end
 
+  def next_node_update(id)
+    @next_node = id
+  end
+
 end
