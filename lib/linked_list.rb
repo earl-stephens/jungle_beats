@@ -3,22 +3,41 @@ require 'pry'
 class LinkedList
   attr_reader :head
 
-  def initialize
-    @head = nil
-  end
-
-  def append(data)
+  def initialize(data)
     @head = Node.new(data)
   end
 
+  def append(data)
+    last_node = @head
+    while last_node.next_node != nil
+      last_node = last_node.next_node
+    end
+    last_node.next_node = Node.new(data)
+      # binding.pry
+  end
+
   def count
-    # binding.pry
     if @head.next_node == nil
-      1
+      return 1
+    else
+    counter = 1
+    last_node = @head
+    while last_node.next_node != nil
+      last_node = last_node.next_node
+      counter += 1
+    end
+    counter
     end
   end
 
   def to_string
-    @head.data
+    output = @head.data
+    last_node = @head
+    while last_node.next_node != nil
+      # binding.pry
+      output = output + " " + last_node.next_node.data
+      last_node = last_node.next_node
+    end
+    output
   end
 end
