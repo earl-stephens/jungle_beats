@@ -4,38 +4,32 @@ require 'pry'
 
 RSpec.describe 'testing linked list class' do
   before :each do
-    @list = LinkedList.new
+    @list = LinkedList.new('bebop')
   end
 
   it 'creates a linked list object' do
 
     expect(@list).to be_an_instance_of(LinkedList)
-    expect(@list.head).to eq(nil)
-  end
-
-  it 'can append data' do
-    @list.append('doop')
-
     expect(@list.head).to be_an_instance_of(Node)
-    expect(@list.head.data).to eq('doop')
+    expect(@list.head.data).to eq('bebop')
     expect(@list.head.next_node).to eq(nil)
   end
 
-  xit 'can count nodes' do
+  it 'can count nodes' do
     @list.append('doop')
-    # binding.pry
-    expect(@list.count).to eq(1)
+    expect(@list.count).to eq(2)
   end
 
-  xit 'can output the data' do
+
+  it 'can output the data' do
     @list.append('doop')
 
-    expect(@list.to_string).to eq('doop')
+    expect(@list.to_string).to eq('bebop doop')
   end
 
 describe 'a single linked list' do
   before :each do
-    @list = LinkedList.new
+    @list = LinkedList.new('bebop')
     @list.append('doop')
   end
 
@@ -44,8 +38,8 @@ describe 'a single linked list' do
     @list.append('derp')
 
     expect(@list.head.next_node).to_not eq(nil)
-    # expect(@list.count).to eq(2)
-    # expect(@list.to_string).to eq('doop deep')
+    expect(@list.count).to eq(4)
+    expect(@list.to_string).to eq('bebop doop deep derp')
   end
 end
 end
