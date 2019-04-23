@@ -53,4 +53,11 @@ class LinkedList
     end
     output
   end
+
+  def prepend(data)
+    second_node = @head
+    @head = Node.new(data)
+    # binding.pry
+    @head.next_node = second_node
+  end
 end
