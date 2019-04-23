@@ -54,9 +54,23 @@ RSpec.describe 'testing linked list class' do
 
       list.append('suu')
       list.prepend('dop')
-# binding.pry
+
       expect(list.to_string).to eq('dop plop suu')
       expect(list.count).to eq(3)
+    end
+  end
+
+  describe 'it can add a node' do
+    it 'in the middle of a list' do
+      list = LinkedList.new
+      list.append('plop')
+      list.append('suu')
+      list.prepend('dop')
+
+      list.insert(1, 'woo')
+
+      expect(list.to_string).to eq('dop woo plop suu')
+      expect(list.count).to eq(4)
     end
   end
 end

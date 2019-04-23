@@ -60,4 +60,33 @@ class LinkedList
     # binding.pry
     @head.next_node = second_node
   end
+
+  def insert(position, data)
+    position_counter = 0
+    if @head.next_node == nil
+      position_counter = 1
+      if position_counter == position
+        insert_into_list(position, data, @head.next_node)
+      end
+    else
+      position_counter = 1
+      if position_counter == position
+        insert_into_list(position, data, @head.next_node)
+      end
+      last_node = @head
+      while last_node.next_node != nil
+        last_node = last_node.next_node
+        position_counter += 1
+        binding.pry
+        if position_counter == position
+          insert_into_list(position, data, last_node.next_node)
+        end
+        break
+      end
+    end
+  end
+
+  def insert_into_list(position, data, node)
+    binding.pry
+  end
 end
