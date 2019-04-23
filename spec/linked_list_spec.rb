@@ -66,11 +66,15 @@ RSpec.describe 'testing linked list class' do
       list.append('plop')
       list.append('suu')
       list.prepend('dop')
-
       list.insert(1, 'woo')
 
       expect(list.to_string).to eq('dop woo plop suu')
       expect(list.count).to eq(4)
+
+      list.insert(3, 'pop')
+
+      expect(list.to_string).to eq('dop woo plop pop suu')
+      expect(list.count).to eq(5)
     end
   end
 end

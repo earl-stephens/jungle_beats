@@ -71,22 +71,23 @@ class LinkedList
     else
       position_counter = 1
       if position_counter == position
-        insert_into_list(position, data, @head.next_node)
+        insert_into_list(position, data, @head)
       end
       last_node = @head
       while last_node.next_node != nil
         last_node = last_node.next_node
         position_counter += 1
-        binding.pry
         if position_counter == position
-          insert_into_list(position, data, last_node.next_node)
+          insert_into_list(position, data, last_node)
         end
-        break
+
       end
     end
   end
 
   def insert_into_list(position, data, node)
-    binding.pry
+    node_to_move = node.next_node
+    node.next_node = Node.new(data)
+    node.next_node.next_node = node_to_move
   end
 end
