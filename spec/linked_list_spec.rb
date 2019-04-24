@@ -77,4 +77,21 @@ RSpec.describe 'testing linked list class' do
       expect(list.count).to eq(5)
     end
   end
+
+  describe 'it can search the list' do
+    before :each do
+      @list = LinkedList.new
+      @list.append('deep')
+      @list.append('woo')
+      @list.append('shi')
+      @list.append('shu')
+      @list.append('blop')
+    end
+
+    it 'can find nodes' do
+
+      expect(@list.find(2, 1)).to eq('shi')
+      expect(@list.find(1, 3)).to eq('woo shi shu')
+    end
+  end
 end
