@@ -8,18 +8,9 @@ class LinkedList
   end
 
   def append(data)
-    # last_node = @head
-    # unless last_node == nil
-    #   while last_node.next_node != nil
-    #     last_node = last_node.next_node
-    #   end
-    # end
-    # last_node = Node.new(data)
-      # binding.pry
       if @head == nil
         @head = Node.new(data)
       else
-        # binding.pry
         last_node = @head
         while last_node.next_node != nil
           last_node = last_node.next_node
