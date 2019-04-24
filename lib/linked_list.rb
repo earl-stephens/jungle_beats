@@ -136,4 +136,14 @@ class LinkedList
     end
     status
   end
+
+  def pop
+    current_node = @head
+    upcoming_node = current_node.next_node
+    until upcoming_node.next_node == nil
+      current_node = current_node.next_node
+      upcoming_node = upcoming_node.next_node
+    end
+    current_node.next_node = nil
+  end
 end

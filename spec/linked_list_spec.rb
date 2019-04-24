@@ -99,5 +99,13 @@ RSpec.describe 'testing linked list class' do
       expect(@list.includes?('deep')).to eq(true)
       expect(@list.includes?('dep')).to eq(false)
     end
+
+    it 'can pop off the last node' do
+      @list.pop
+      expect(@list.to_string).to eq('deep woo shi shu')
+
+      @list.pop
+      expect(@list.to_string).to eq('deep woo shi')
+    end
   end
 end
