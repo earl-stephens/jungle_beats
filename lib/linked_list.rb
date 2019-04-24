@@ -124,4 +124,16 @@ class LinkedList
     end
     output
   end
+
+  def includes?(data)
+    status = false
+    latest_node = @head
+    until latest_node.next_node == nil
+      if latest_node.data == data
+        status = true
+      end
+      latest_node = latest_node.next_node
+    end
+    status
+  end
 end

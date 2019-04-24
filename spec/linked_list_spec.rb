@@ -93,5 +93,11 @@ RSpec.describe 'testing linked list class' do
       expect(@list.find(2, 1)).to eq('shi')
       expect(@list.find(1, 3)).to eq('woo shi shu')
     end
+
+    it 'can search for data in a list' do
+
+      expect(@list.includes?('deep')).to eq(true)
+      expect(@list.includes?('dep')).to eq(false)
+    end
   end
 end
