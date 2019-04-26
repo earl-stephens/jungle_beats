@@ -10,4 +10,17 @@ RSpec.describe 'testing jungle beat class' do
     expect(jb.list).to be_an_instance_of(LinkedList)
     expect(jb.list.head).to eq(nil)
   end
+
+  it 'can append data' do
+    jb = JungleBeat.new
+
+    jb.append('deep doo ditt')
+
+    expect(jb.list.head.next_node.data).to eq('doo')
+
+    jb.append('woo hoo shu')
+
+    expect(jb.count).to eq(6)
+  end
+
 end
