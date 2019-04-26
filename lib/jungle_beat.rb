@@ -18,4 +18,10 @@ class JungleBeat
     @list.count
   end
 
+  def play
+    # binding.pry
+    beats = @list.to_string
+    `say -r 500 #{beats}`
+  end
+
 end
