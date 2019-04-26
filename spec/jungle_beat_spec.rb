@@ -23,4 +23,14 @@ RSpec.describe 'testing jungle beat class' do
     expect(jb.count).to eq(6)
   end
 
+  it 'can play the beats' do
+    jb = JungleBeat.new
+    jb.append('deep doo ditt woo hoo shu')
+
+    expect(jb.count).to eq(6)
+    expect(jb.list.count).to eq(6)
+
+    jb.play
+  end
+
 end
