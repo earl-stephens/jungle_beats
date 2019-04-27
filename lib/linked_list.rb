@@ -20,17 +20,11 @@ class LinkedList
   end
 
   def count
-    # binding.pry
     if @head.next_node == nil
       return 1
     else
     counter = 1
-    last_node = @head
-    while last_node.next_node != nil
-      last_node = last_node.next_node
-      counter += 1
-    end
-    counter
+    update_counter(counter)
     end
   end
 
@@ -38,7 +32,6 @@ class LinkedList
     output = @head.data
     last_node = @head
     while last_node.next_node != nil
-      # binding.pry
       output = output + " " + last_node.next_node.data
       last_node = last_node.next_node
     end
@@ -53,26 +46,33 @@ class LinkedList
   end
 
   def insert(position, data)
-    position_counter = 0
+    counter = 0
     if @head.next_node == nil
-      position_counter = 1
-      if position_counter == position
         insert_into_list(position, data, @head.next_node)
-      end
     else
-      position_counter = 1
-      if position_counter == position
+      counter = 1
+      if counter == position
         insert_into_list(position, data, @head)
-      end
-      last_node = @head
-      while last_node.next_node != nil
-        last_node = last_node.next_node
-        position_counter += 1
-        if position_counter == position
-          insert_into_list(position, data, last_node)
+      else
+        last_node = @head
+        while last_node.next_node != nil
+          last_node = last_node.next_node
+          counter += 1
+          if counter == position
+            insert_into_list(position, data, last_node)
+          end
         end
       end
     end
+  end
+
+  def update_counter(counter)
+    last_node = @head
+    while last_node.next_node != nil
+      last_node = last_node.next_node
+      counter += 1
+    end
+    counter
   end
 
   def insert_into_list(position, data, node)
